@@ -1,6 +1,8 @@
 import { FeedCard } from "@/components/FeedCard";
+import { GoogleLoginComponent } from "@/components/GoogleLogin";
+import { CredentialResponse } from "@react-oauth/google";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback } from "react";
 import { BiHash, BiHomeCircle, BiUser } from "react-icons/bi";
 import { BsBell, BsBookmark, BsEnvelope, BsTwitter } from "react-icons/bs";
 import { MdAttachMoney } from "react-icons/md";
@@ -47,6 +49,9 @@ const sidebarMenuButton: TwitterSidebarButton[] = [
 ];
 
 export default function Home() {
+  const handleLoginWithGoogle = useCallback((cred: CredentialResponse) => {},
+  []);
+
   return (
     <div>
       <div className="grid grid-cols-12 h-screen px-80">
@@ -88,7 +93,9 @@ export default function Home() {
           <FeedCard />
           <FeedCard />
         </div>
-        <div className="col-span-3"></div>
+        <div className="col-span-3">
+          <GoogleLoginComponent />
+        </div>
       </div>
     </div>
   );
